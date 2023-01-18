@@ -1,4 +1,5 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -10,21 +11,12 @@ module.exports = {
     library: "react-ui-lib-test",
     globalObject: "this",
   },
+  plugins: [new MiniCssExtractPlugin()],
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [
-          "isomorphic-style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              esModule: false,
-            },
-          },
-          "postcss-loader",
-        ],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
         test: /\.tsx?$/,

@@ -1,0 +1,10 @@
+.UI-Button-2 {
+    padding: 10px;
+    background: blueviolet;
+    color: white;
+    border-radius: 4px;
+}
+
+.UI-Button-2:hover {
+    background: blue;
+}
