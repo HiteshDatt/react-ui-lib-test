@@ -6,6 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 require("./Button.css");
 function default_1({ title }) {
-    return (react_1.default.createElement("button", { className: "UI-Button" }, title));
+    return (react_1.default.createElement("button", { className: "UI-Button-2" }, title));
 }
 exports.default = default_1;
