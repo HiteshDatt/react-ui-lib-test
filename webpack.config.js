@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
   entry: "./src/index.ts",
@@ -13,13 +13,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        loader: "css-loader",
-        options: {
-          modules: {
-            exportOnlyLocals: true,
+        test: /\.css$/,
+        use: [
+          "isomorphic-style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+            },
           },
-        },
+          "postcss-loader",
+        ],
       },
       {
         test: /\.tsx?$/,
