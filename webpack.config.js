@@ -11,12 +11,25 @@ module.exports = {
     library: "react-ui-lib-test",
     globalObject: "this",
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: true ? "css/[contentHash].css" : "css/[id].css",
+      chunkFilename: true ? "css/[contentHash].css" : "css/[id].css",
+    }),
+  ],
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: "/public/css",
+            },
+          },
+          "css-loader",
+        ],
       },
       {
         test: /\.tsx?$/,
