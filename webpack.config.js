@@ -7,7 +7,8 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: "index.js",
         libraryTarget: "umd",
-        library: "react-ui-lib-test"
+        library: "react-ui-lib-test",
+        globalObject: 'this',
     },
     module: {
         rules: [
